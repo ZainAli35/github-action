@@ -3,9 +3,120 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>portfolio</title>
+    <title>Zain Ali | Portfolio</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: #333;
+            line-height: 1.6;
+            background: #f4f4f4;
+        }
+        header {
+            background: #4a90e2;
+            color: #fff;
+            padding: 60px 20px;
+            text-align: center;
+        }
+        header h1 {
+            margin: 0;
+            font-size: 3rem;
+        }
+        header p {
+            font-size: 1.2rem;
+            margin-top: 10px;
+        }
+        nav {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            background: #fff;
+            padding: 10px 0;
+            box-shadow: 0 2px 4px rgba(0,0,0,.1);
+        }
+        nav a {
+            text-decoration: none;
+            color: #4a90e2;
+            font-weight: bold;
+        }
+        section {
+            max-width: 900px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+        .projects {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+        .project-card {
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,.1);
+        }
+        .project-card h3 {
+            margin-top: 0;
+        }
+        footer {
+            text-align: center;
+            padding: 20px;
+            background: #fff;
+            border-top: 1px solid #ddd;
+        }
+        .cta {
+            text-align: center;
+            margin: 40px 0;
+        }
+        .btn {
+            background: #4a90e2;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+        }
+    </style>
 </head>
 <body>
-    <h1>My Portfolio</h1>
+    <header>
+        <h1>Zain Ali</h1>
+        <p>MERN Stack Developer &amp; DevOps Engineer</p>
+    </header>
+    <nav>
+        <a href="#about">About</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a>
+    </nav>
+    <section id="about">
+        <h2>About Me</h2>
+        <p>Hello! I'm Zain Ali, a passionate MERN stack developer with experience building modern web applications and a strong background in DevOps practices. I enjoy crafting efficient and scalable solutions, automating deployments, and continuously learning new technologies.</p>
+    </section>
+    <section id="projects">
+        <h2>Projects</h2>
+        <div class="projects">
+            <div class="project-card">
+                <h3>Project One</h3>
+                <p>A description of a web application built using React, Node.js, Express, and MongoDB.</p>
+            </div>
+            <div class="project-card">
+                <h3>Project Two</h3>
+                <p>A DevOps automation tool integrated with CI/CD pipelines.</p>
+            </div>
+            <div class="project-card">
+                <h3>Project Three</h3>
+                <p>An e-commerce platform leveraging the MERN stack and containerized deployments.</p>
+            </div>
+        </div>
+    </section>
+    <section id="contact">
+        <h2>Contact</h2>
+        <p>Feel free to reach out via email at <a href="mailto:zain@example.com">zain@example.com</a> or connect on <a href="https://www.linkedin.com/in/zainali" target="_blank">LinkedIn</a>.</p>
+    </section>
+    <footer>
+        <p>&copy; 2026 Zain Ali. All rights reserved.</p>
+    </footer>
 </body>
 </html>
