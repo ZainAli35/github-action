@@ -27,6 +27,8 @@ jobs:
 
       - name: Upload static files
         uses: actions/upload-pages-artifact@v4
+        with:
+          path: './'   # upload all files from repo root (replace default _site)
 
       - name: Deploy to GitHub Pages
         uses: actions/deploy-pages@v4
