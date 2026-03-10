@@ -5,20 +5,15 @@ on:
 
 jobs:
   deploy:
-    runs-on: ubuntu-latest
+    # Yahan tabdeel karein:
+    runs-on: [self-hosted, prod] 
+    
     env:
       DOCKER_USER: ${{ vars.DOCKER_USER }}
+      
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
+        - name: Checkout code
+          uses: actions/checkout@v4
 
-      - name: Deploy with Docker Compose
-        run: |
-          # ubuntu-latest runners include the Docker CLI plugin
-          # and may not have the legacy docker-compose binary installed.
-          if ! command -v docker-compose >/dev/null 2>&1; then
-            echo "Using 'docker compose'"
-            docker compose up -d --build
-          else
-            docker-compose up -d --build
-          fi
+        - name: Deploy with docker compose
+          run: docker compose up -d --build
