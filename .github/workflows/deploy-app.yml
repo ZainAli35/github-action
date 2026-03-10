@@ -7,11 +7,11 @@ on:
 
 jobs:
   deploy:
-    # Yahan tabdeel karein:
     runs-on: [self-hosted, prod] 
     
     env:
       DOCKER_USER: ${{ vars.DOCKER_USER }}
+      DOCKER_TAG: ${{github.sha}}
       
     steps:
         - name: Checkout code
@@ -21,4 +21,4 @@ jobs:
           uses: docker/setup-compose-action@v2
 
         - name: Deploy with docker compose
-          run: docker compose down && docker compose up -d --build --build --force-recreate
+          run: docker compose down && docker compose up -d --build --force-recreate --pull always
