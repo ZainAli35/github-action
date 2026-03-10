@@ -10,7 +10,8 @@ jobs:
     runs-on: [self-hosted, prod]
     env:
       DOCKER_USER: ${{ vars.DOCKER_USER }}
-      DOCKER_TAG: ${{ github.sha }}
+      # leave DOCKER_TAG unset so compose file defaults to 'latest'
+      # set manually via workflow_dispatch inputs if you want a specific tag
 
     steps:
       - name: Checkout code
