@@ -7,18 +7,21 @@ on:
 
 jobs:
   deploy:
-    runs-on: [self-hosted, prod] 
-    
+    runs-on: [self-hosted, prod]
     env:
       DOCKER_USER: ${{ vars.DOCKER_USER }}
-      DOCKER_TAG: ${{github.sha}}
-      
+      DOCKER_TAG: ${{ github.sha }}
+
     steps:
-        - name: Checkout code
-          uses: actions/checkout@v4
+      - name: Checkout code
+        uses: actions/checkout@v4
 
-        - name: Set up Docker Compose
-          uses: docker/setup-compose-action@v2
+      - name: Set up Docker Compose
+        uses: docker/setup-compose-action@v2
 
-        - name: Deploy with docker compose
-          run: docker compose down && docker compose up -d --build --force-recreate --pull always
+      - name: Deploy with docker compose
+        run: |
+          export DOCKER_TAG="${DOCKER_TAG:-latest}"
+
+          docker compose down
+          docker compose up -d --build --force-recreate --pull always

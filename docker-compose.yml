@@ -1,6 +1,8 @@
 services:
 
   web:
-    image: ${{vars.DOCKER_USER}}/github-action:${{vars.DOCKER_TAG}}
+    # interpolate from environment (set by workflow)
+    # fallback to 'latest' if DOCKER_TAG is unset
+    image: ${DOCKER_USER}/github-action:${DOCKER_TAG:-latest}
     ports:
       - "80:80"
