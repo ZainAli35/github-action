@@ -1,7 +1,7 @@
 name: Deploy Flask App
 
 on:
-    workflow_dispatch:
+  workflow_dispatch:
 
 jobs:
   deploy:
@@ -9,8 +9,16 @@ jobs:
     env:
       DOCKER_USER: ${{ vars.DOCKER_USER }}
     steps:
-        - name: Checkout code
-          uses: actions/checkout@v4
+      - name: Checkout code
+        uses: actions/checkout@v4
 
-        - name: Deploy with docker compose
-          run: docker-compose up -d --build
+      - name: Deploy with Docker Compose
+        run: |
+          # ubuntu-latest runners include the Docker CLI plugin
+          # and may not have the legacy docker-compose binary installed.
+          if ! command -v docker-compose >/dev/null 2>&1; then
+            echo "Using 'docker compose'"
+            docker compose up -d --build
+          else
+            docker-compose up -d --build
+          fi
