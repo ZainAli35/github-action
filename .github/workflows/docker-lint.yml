@@ -1,1 +1,6 @@
 name: docker Lint
+
+on:
+  workflow_dispatch:
+
+# add jobs as needed
