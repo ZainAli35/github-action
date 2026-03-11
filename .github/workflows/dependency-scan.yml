@@ -1,6 +1,3 @@
 name: dependency Scan
 
-on:
-  workflow_dispatch:
 
-# add jobs as needed
